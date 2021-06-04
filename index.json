@@ -1,0 +1,10 @@
+{
+    "apps": [{
+        "name": "[DEV] Time Tracker (4600)",
+        "script": "./build/index.js"
+    }],
+    "const": {
+        "startClean": true,
+        "env": "LOCAL"
+    }
+}
