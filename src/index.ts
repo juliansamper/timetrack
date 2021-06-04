@@ -41,8 +41,8 @@ const options = {
         },
         servers: [
             {
-                url: "http://localhost:4600/api/v1",
-                description: "Dev/Test Server"
+                url: "https://qrvey-js-time-tracker.herokuapp.com/api/v1",
+                description: "Test Server"
             }
         ]
     },
