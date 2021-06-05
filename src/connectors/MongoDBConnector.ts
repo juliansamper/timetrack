@@ -4,7 +4,9 @@ const { LudyConsole } = require("../utils/LudyConsole");
 // const uri: string = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@timetrackcluster0.ktn9n.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`;
 const uri: string = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@timetrackcluster1.ktn9n.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`;
 
-const db = mongoose.connect(uri,
+let db: any;
+
+db = mongoose.connect(uri,
     { useNewUrlParser: true, useUnifiedTopology: true }
 )
     .then(() => {

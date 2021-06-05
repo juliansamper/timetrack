@@ -125,7 +125,7 @@ function deleteProjectById(userId: string, id: string) {
                     if (data) {
                         let response: ResponseDTO = new ResponseDTO();
 
-                        response.code = '200';
+                        response.code = '204';
                         response.message = `The project (${id}) was deleted successfully!`;
                         response.datetime = moment(new Date()).format("DD/MM/YYYY HH:mm:ss");
 

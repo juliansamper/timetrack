@@ -1,5 +1,6 @@
 import moment from "moment";
 import { ResponseDTO } from "../DTO/ResponseDTO";
+import { SecurityDTO } from '../DTO/SecurityDTO';
 
 const _ = require("lodash");
 const jwt = require('jsonwebtoken');
@@ -27,8 +28,6 @@ function login(_user: string, _password: string) {
             User.findOne({ user: _user, password: _password })
                 .then(function (data: any) {
                     if (data) {
-                        console.log();
-                        
                         var tokenData: any = {
                             name: data._doc.name,
                             uid: data._doc._id,
@@ -39,7 +38,7 @@ function login(_user: string, _password: string) {
                             expiresIn: '1h'
                         });
 
-                        resolve(data);
+                        resolve(new SecurityDTO(data));
                     } else {
                         let response: ResponseDTO = new ResponseDTO();
 

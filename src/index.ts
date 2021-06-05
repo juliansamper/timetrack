@@ -43,6 +43,10 @@ const options = {
             {
                 url: "https://qrvey-js-time-tracker.herokuapp.com/api/v1",
                 description: "Test Server"
+            },
+            {
+                url: "http://localhost:4600/api/v1",
+                description: "Dev Server"
             }
         ]
     },
@@ -112,7 +116,7 @@ app.use((err, req, res, next) => {
     ErrorHandler.sendError(err, req, res, next);
 });
 
-
+export default app;
 
 
 

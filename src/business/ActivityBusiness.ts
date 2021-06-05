@@ -154,7 +154,7 @@ function deleteActivityById(userId: string, id: string) {
                     if (data) {
                         let response: ResponseDTO = new ResponseDTO();
 
-                        response.code = '200';
+                        response.code = '204';
                         response.message = `The activity (${id}) was deleted successfully!`;
                         response.datetime = moment(new Date()).format("DD/MM/YYYY HH:mm:ss");
 

@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 /**
  * @swagger
  * components:
@@ -50,4 +52,12 @@ export class SecurityDTO {
     name: string;
     rol: string;
     token: string;
+
+    constructor(obj: any) {
+        this.id = _.get(obj,'_doc._id', '');
+        this.user = _.get(obj,'_doc.user', '');
+        this.name = _.get(obj,'_doc.name', '');
+        this.rol = _.get(obj,'_doc.rol', '');
+        this.token = _.get(obj,'_doc.token', '');
+    }
 }
