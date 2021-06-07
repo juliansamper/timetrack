@@ -1,5 +1,10 @@
 # TimeTrack API
-Is a set of tools to help the FrontEnd developer in the making of a portal alike toggl, the project was developed under nodejs with Typescript, Express and MongoDB.
+Is a set of tools to help the FrontEnd developer in the making of a portal alike toggl, the project was developed under [nodejs](https://nodejs.org/) with [Typescript](https://www.typescriptlang.org/), [Express](http://expressjs.com/) and [MongoDB](https://www.mongodb.com/).
+
+## Documentation
+
+The documentation was build with [Swagger](https://swagger.io/specification/) [swagger-jsdoc](https://www.npmjs.com/package/swagger-jsdoc) and the link is the following:
+<br>https://qrvey-js-time-tracker.herokuapp.com/api-docs/
 
 ## Installation
 
