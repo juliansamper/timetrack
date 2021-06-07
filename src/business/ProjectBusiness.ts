@@ -9,18 +9,6 @@ import { v4 as uuidv4 } from "uuid";
 import { ProjectDTO } from '../DTO/ProjectDTO';
 import { ResponseDTO } from "../DTO/ResponseDTO";
 
-function template(user: string, data: any) {
-    return new Promise((resolve: any, reject: any) => {
-        try {
-
-            resolve(data);
-
-        } catch (error) {
-            reject(ErrorHandler.getError(error));
-        }
-    });
-}
-
 function getProject(userId: string) {
     return new Promise((resolve: any, reject: any) => {
         try {
@@ -152,7 +140,6 @@ function deleteProjectById(userId: string, id: string) {
 }
 
 module.exports = {
-    template,
     getProject,
     getProjectById,
     addProject,

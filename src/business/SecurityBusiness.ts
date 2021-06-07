@@ -9,17 +9,6 @@ const ErrorHandler = require('../utils/ErrorHandler');
 
 const User = require('../models/UserModel');
 
-function template(user: string, data: any) {
-    return new Promise((resolve: any, reject: any) => {
-        try {
-
-            resolve(data);
-
-        } catch (error) {
-            reject(ErrorHandler.getError(error));
-        }
-    });
-}
 
 function login(_user: string, _password: string) {
     return new Promise((resolve: any, reject: any) => {
@@ -64,6 +53,5 @@ function login(_user: string, _password: string) {
 
 
 module.exports = {
-    template,
     login
 };

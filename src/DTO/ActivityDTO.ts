@@ -83,20 +83,66 @@ export class ActivityDTO {
     id: string;
     name: string;
     project_id: string;
-    start: string;
-    stop: string;
+    start: Date;
+    stop: Date;
     duration: string;
-    at: string;
+    at: Date;
     uid: string;
 
     constructor(obj: any) {
-        this.id = obj['_id'];
-        this.name = obj['name'];
-        this.project_id = obj['project_id'];
-        this.start = moment(obj['start']).format("DD/MM/YYYY HH:mm:ss");
-        this.stop = moment(obj['stop']).format("DD/MM/YYYY HH:mm:ss");
-        this.duration = obj['duration'];
-        this.at = moment(obj['at']).format("DD/MM/YYYY HH:mm:ss");
-        this.uid = obj['uid'];
+        if (obj['_id'])
+            this.id = obj['_id'];
+
+        if (obj['name'])
+            this.name = obj['name'];
+
+        if (obj['project_id'])
+            this.project_id = obj['project_id'];
+
+        if (obj['start'])
+            this.start = moment(obj['start'], "DD/MM/YYYY HH:mm:ss").toDate();
+
+        if (obj['stop'])
+            this.stop = moment(obj['stop'], "DD/MM/YYYY HH:mm:ss").toDate();
+
+        if (obj['duration'])
+            this.duration = obj['duration'];
+
+        if (obj['at'])
+            this.at = moment(obj['at'], "DD/MM/YYYY HH:mm:ss").toDate();
+        else
+            this.at = new Date();
+
+        if (obj['uid'])
+            this.uid = obj['uid'];
+    }
+
+    public getJson(): any {
+        let _json: any = {};
+        if (this.id)
+            _json['_id'] = this.id;
+
+        if (this.name)
+            _json['name'] = this.name;
+
+        if (this.project_id)
+            _json['project_id'] = this.project_id;
+
+        if (this.start)
+            _json['start'] = moment(this.start).format("DD/MM/YYYY HH:mm:ss");
+
+        if (this.stop)
+            _json['stop'] = moment(this.stop).format("DD/MM/YYYY HH:mm:ss");
+
+        if (this.duration)
+            _json['duration'] = this.duration;
+
+        if (this.at)
+            _json['at'] = moment(this.at).format("DD/MM/YYYY HH:mm:ss");
+
+        if (this.uid)
+            _json['uid'] = this.uid;
+
+        return _json;
     }
 }

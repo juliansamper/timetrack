@@ -75,7 +75,7 @@ router.get('/:projectId', ProjectController.getProjectById);
  *                  schema:
  *                      $ref: '#/components/schemas/ProjectInput'
  *      responses:
- *          200:
+ *          201:
  *              description: The Project requested.
  *              content:
  *                  application/json:

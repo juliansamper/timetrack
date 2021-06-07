@@ -4,29 +4,13 @@
     "description": "Time Tracker Web Service for Qrvey's home take exercise (Team Lead).",
     "main": "index.js",
     "scripts": {
-        "test": "jest",
+        "test": "jest --coverage --runInBand",
         "start": "npm run build:live",
         "build:live": "nodemon --exec ts-node src/index.ts",
         "build": "tsc -p ./tsconfig.json",
         "deploy": "tsc -p ./tsconfig.json && pm2 start index.json && pm2 save",
         "dev:debug": "nodemon --inspect src/index.ts",
         "debug": "nodemon --inspect --exec ts-node src/index.ts"
-    },
-    "jest": {
-        "verbose": true,
-        "coverageDirectory": "/home/abc/jest-supertest/coverage/my_reports/",
-        "coverageReporters": [
-            "html",
-            "text"
-        ],
-        "coverageThreshold": {
-            "global": {
-                "branches": 100,
-                "functions": 100,
-                "lines": 100,
-                "statements": 100
-            }
-        }
     },
     "author": "Julian Samper",
     "license": "ISC",
@@ -55,6 +39,7 @@
         "@types/jest": "^26.0.23",
         "@types/mocha": "^8.2.2",
         "@types/node": "^13.13.52",
+        "@types/supertest": "^2.0.11",
         "jest": "^27.0.4",
         "jest-serial-runner": "^1.1.0",
         "jest-stare": "^2.2.2",

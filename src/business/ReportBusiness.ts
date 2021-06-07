@@ -14,18 +14,6 @@ import { ActivityDTO } from '../DTO/ActivityDTO';
 import { ResponseDTO } from "../DTO/ResponseDTO";
 
 
-function template(user: string, data: any) {
-    return new Promise((resolve: any, reject: any) => {
-        try {
-
-            resolve(data);
-
-        } catch (error) {
-            reject(ErrorHandler.getError(error));
-        }
-    });
-}
-
 function getActivitiesByUser(userId: string) {
     return new Promise((resolve: any, reject: any) => {
         try {
@@ -114,9 +102,18 @@ function getActivitiesByUser(userId: string) {
                     data.forEach(user => {
                         user.users.forEach((activities, index, _activities) => {
                             if (activities.activities.length > 1) {
-                                _activities[index].total = activities.activities.reduce(function (activity1, activity2) {
-                                    return moment.utc((moment.duration(activity1.duration).add(moment.duration(activity2.duration)))
-                                        .as('milliseconds')).format('HH:mm:ss');
+                                // _activities[index].total = activities.activities.reduce(function (activity1, activity2) {
+                                //     console.log("Activity 1: "+activity1.duration);
+                                //     console.log("Activity 2: "+activity2.duration);
+                                //     let duration: string = moment.utc((moment.duration(activity1.duration).add(moment.duration(activity2.duration)))
+                                //                             .as('milliseconds')).format('HH:mm:ss');
+                                //     console.log('Duration Result: '+duration);
+                                //     return duration;
+                                // });
+                                _activities[index].total = "00:00:00";
+                                activities.activities.forEach(activity => {
+                                    _activities[index].total = moment.utc((moment.duration(_activities[index].total).add(moment.duration(activity.duration)))
+                                                                .as('milliseconds')).format('HH:mm:ss');
                                 });
                             } else if (activities.activities.length > 0) {
                                 _activities[index].total = activities.activities[0].duration;
@@ -191,9 +188,18 @@ function getActivitiesByProject(userId: string) {
                     data.forEach(project => {
                         project.projects.forEach((activities, index, _activities) => {
                             if (activities.activities.length > 1) {
-                                _activities[index].total = activities.activities.reduce(function (activity1, activity2) {
-                                    return moment.utc((moment.duration(activity1.duration).add(moment.duration(activity2.duration)))
-                                        .as('milliseconds')).format('HH:mm:ss');
+                                // _activities[index].total = activities.activities.reduce(function (activity1, activity2) {
+                                //     console.log("Activity 1: "+activity1.duration);
+                                //     console.log("Activity 2: "+activity2.duration);
+                                //     let duration: string = moment.utc((moment.duration(activity1.duration).add(moment.duration(activity2.duration)))
+                                //                             .as('milliseconds')).format('HH:mm:ss');
+                                //     console.log('Duration Result: '+duration);
+                                //     return duration;
+                                // });
+                                _activities[index].total = "00:00:00";
+                                activities.activities.forEach(activity => {
+                                    _activities[index].total = moment.utc((moment.duration(_activities[index].total).add(moment.duration(activity.duration)))
+                                                                .as('milliseconds')).format('HH:mm:ss');
                                 });
                             } else if (activities.activities.length > 0) {
                                 _activities[index].total = activities.activities[0].duration;
@@ -218,7 +224,6 @@ function getActivitiesByProject(userId: string) {
 
 
 module.exports = {
-    template,
     getActivitiesByUser,
     getActivitiesByProject
 };

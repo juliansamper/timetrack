@@ -8,35 +8,6 @@ import { ResponseDTO } from '../DTO/ResponseDTO';
 const ProjectBusiness = require('../business/ProjectBusiness');
 
 
-function template(req, res, next) {
-    try {
-
-        let id: string = _.get(req.params, "projectId", "");
-
-        let request: any = {
-            code: "200",
-            msg: "Proceso ejecutado correctamente.",
-            url: req.originalUrl,
-            user: ''+req.user,
-            params: ''+req.params,
-            body: ''+req.body
-        };
-
-        ProjectBusiness.template(req.user, request)
-            .then(function (data: ProjectDTO) {
-                res.status(200).send(data);
-            })
-            .catch(error => {
-                next(error);
-                return;
-            });
-
-    } catch (error) {
-        next(ErrorHandler.getError(error));
-        return;
-    }
-}
-
 function getProject(req, res, next) {
     try {
 
@@ -200,7 +171,6 @@ function deleteProjectById(req, res, next) {
 
 
 module.exports = {
-    template,
     getProject,
     addProject,
     getProjectById,

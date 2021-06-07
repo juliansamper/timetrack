@@ -9,17 +9,6 @@ import { v4 as uuidv4 } from "uuid";
 import { ActivityDTO } from '../DTO/ActivityDTO';
 import { ResponseDTO } from "../DTO/ResponseDTO";
 
-function template(user: string, data: any) {
-    return new Promise((resolve: any, reject: any) => {
-        try {
-
-            resolve(data);
-
-        } catch (error) {
-            reject(ErrorHandler.getError(error));
-        }
-    });
-}
 
 function getActivity(userId: string) {
     return new Promise((resolve: any, reject: any) => {
@@ -74,7 +63,7 @@ function startActivity(userId: string, activity: ActivityDTO) {
 
             activity.uid = userId;
             Activity.create(activity)
-                .then(function (data: ActivityDTO) {
+                .then(function (data: any) {
                     resolve(data);
                 })
                 .catch(function (error) {
@@ -120,8 +109,8 @@ function stopActivityById(userId: string, id: string, activity: ActivityDTO) {
     return new Promise((resolve: any, reject: any) => {
         try {
 
-            Activity.findByIdAndUpdate(id, activity, { new: true, useFindAndModify: false })
-                .then(function (data: ActivityDTO) {
+            Activity.findByIdAndUpdate(id, new ActivityDTO(activity), { new: true, useFindAndModify: false })
+                .then(function (data: any) {
                     if (data)
                         resolve(data);
                     else {
@@ -181,7 +170,6 @@ function deleteActivityById(userId: string, id: string) {
 }
 
 module.exports = {
-    template,
     getActivity,
     getActivityById,
     startActivity,

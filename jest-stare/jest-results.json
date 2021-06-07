@@ -1,0 +1,71 @@
+{
+  "numFailedTestSuites": 1,
+  "numFailedTests": 0,
+  "numPassedTestSuites": 0,
+  "numPassedTests": 0,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 1,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 1,
+  "numTotalTests": 0,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1622928134266,
+  "success": false,
+  "testResults": [
+    {
+      "failureMessage": "  \u001b[1m● \u001b[22mTest suite failed to run\n\n    \u001b[1m\u001b[31mJest encountered an unexpected token\u001b[39m\u001b[22m\n\n    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.\n\n    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.\n\n    By default \"node_modules\" folder is ignored by transformers.\n\n    Here's what you can do:\n     • If you are trying to use ECMAScript Modules, see \u001b[4mhttps://jestjs.io/docs/ecmascript-modules\u001b[24m for how to enable it.\n     • To have some of your \"node_modules\" files transformed, you can specify a custom \u001b[1m\"transformIgnorePatterns\"\u001b[22m in your config.\n     • If you need a custom transformation specify a \u001b[1m\"transform\"\u001b[22m option in your config.\n     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the \u001b[1m\"moduleNameMapper\"\u001b[22m config option.\n\n    You'll find more details and examples of these config options in the docs:\n    \u001b[36mhttps://jestjs.io/docs/configuration\u001b[39m\n    For information about custom transformations, see:\n    \u001b[36mhttps://jestjs.io/docs/code-transformation\u001b[39m\n\n    \u001b[1m\u001b[31mDetails:\u001b[39m\u001b[22m\n\n    SyntaxError: D:\\Projects\\LAB\\NodeJS\\TimeTracker\\src\\index.ts: Missing semicolon. (104:16)\n\n    \u001b[0m \u001b[90m 102 |\u001b[39m \u001b[90m// Catch 404 and forward to error handler\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m 103 |\u001b[39m app\u001b[33m.\u001b[39muse((req\u001b[33m,\u001b[39m res\u001b[33m,\u001b[39m next) \u001b[33m=>\u001b[39m {\u001b[0m\n    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 104 |\u001b[39m     \u001b[36mlet\u001b[39m response\u001b[33m:\u001b[39m \u001b[33mResponseDTO\u001b[39m \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mResponseDTO\u001b[39m()\u001b[33m;\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m     |\u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m 105 |\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m 106 |\u001b[39m     response\u001b[33m.\u001b[39mcode \u001b[33m=\u001b[39m \u001b[32m'404'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m 107 |\u001b[39m     response\u001b[33m.\u001b[39mmessage \u001b[33m=\u001b[39m \u001b[32m`The resource (${req.originalUrl}) do not exist!`\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\n      \u001b[2mat Parser._raise (\u001b[22mnode_modules/@babel/parser/src/parser/error.js\u001b[2m:134:45)\u001b[22m\n      \u001b[2mat Parser.raiseWithData (\u001b[22mnode_modules/@babel/parser/src/parser/error.js\u001b[2m:129:17)\u001b[22m\n      \u001b[2mat Parser.raise (\u001b[22mnode_modules/@babel/parser/src/parser/error.js\u001b[2m:78:17)\u001b[22m\n      \u001b[2mat Parser.semicolon (\u001b[22mnode_modules/@babel/parser/src/parser/util.js\u001b[2m:137:10)\u001b[22m\n      \u001b[2mat Parser.parseVarStatement (\u001b[22mnode_modules/@babel/parser/src/parser/statement.js\u001b[2m:788:10)\u001b[22m\n      \u001b[2mat Parser.parseStatementContent (\u001b[22mnode_modules/@babel/parser/src/parser/statement.js\u001b[2m:289:21)\u001b[22m\n      \u001b[2mat Parser.parseStatement (\u001b[22mnode_modules/@babel/parser/src/parser/statement.js\u001b[2m:229:17)\u001b[22m\n      \u001b[2mat Parser.parseBlockOrModuleBlockBody (\u001b[22mnode_modules/@babel/parser/src/parser/statement.js\u001b[2m:961:25)\u001b[22m\n      \u001b[2mat Parser.parseBlockBody (\u001b[22mnode_modules/@babel/parser/src/parser/statement.js\u001b[2m:937:10)\u001b[22m\n      \u001b[2mat Parser.parseBlock (\u001b[22mnode_modules/@babel/parser/src/parser/statement.js\u001b[2m:907:10)\u001b[22m\n",
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 0,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 0,
+        "runtime": 0,
+        "slow": false,
+        "start": 0
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testExecError": {
+        "loc": {
+          "line": 104,
+          "column": 16
+        },
+        "pos": 3014,
+        "code": "BABEL_PARSE_ERROR",
+        "reasonCode": "MissingSemicolon"
+      },
+      "testFilePath": "D:\\Projects\\LAB\\NodeJS\\TimeTracker\\src\\__test__\\index.test.js",
+      "testResults": []
+    }
+  ],
+  "wasInterrupted": false,
+  "coverageMap": {}
+}

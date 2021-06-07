@@ -8,42 +8,13 @@ import { ResponseDTO } from '../DTO/ResponseDTO';
 const ActivityBusiness = require('../business/ActivityBusiness');
 
 
-function template(req, res, next) {
-    try {
-
-        let id: string = _.get(req.params, "activityId", "");
-
-        let request: any = {
-            code: "200",
-            msg: "Proceso ejecutado correctamente.",
-            url: req.originalUrl,
-            user: ''+req.user,
-            params: ''+req.params,
-            body: ''+req.body
-        };
-
-        ActivityBusiness.template(req.user, request)
-            .then(function (data: ActivityDTO) {
-                res.status(200).send(data);
-            })
-            .catch(error => {
-                next(error);
-                return;
-            });
-
-    } catch (error) {
-        next(ErrorHandler.getError(error));
-        return;
-    }
-}
-
 function getActivity(req, res, next) {
     try {
 
         ActivityBusiness.getActivity(req.user)
             .then(function (data: any[]) {
                 let arrActivity: ActivityDTO[] = data.map(function(item) {
-                    return new ActivityDTO(item);
+                    return new ActivityDTO(item).getJson();
                 });
                 res.status(200).send(arrActivity);
             })
@@ -75,7 +46,7 @@ function getActivityById(req, res, next) {
 
         ActivityBusiness.getActivityById(req.user, id)
             .then(function (data: any) {
-                res.status(200).send(new ActivityDTO(data));
+                res.status(200).send(new ActivityDTO(data).getJson());
             })
             .catch(error => {
                 next(error);
@@ -128,8 +99,8 @@ function startActivity(req, res, next) {
             next(response);
             return;
         }
-
-        ActivityBusiness.startActivity(req.user, body)
+        
+        ActivityBusiness.startActivity(req.user, new ActivityDTO(body))
             .then(function (data: ActivityDTO) {
                 res.status(201).send(data);
             })
@@ -205,9 +176,9 @@ function stopActivityById(req, res, next) {
             return;
         }
 
-        ActivityBusiness.stopActivityById(req.user, id, body)
-            .then(function (data: ActivityDTO) {
-                res.status(200).send(data);
+        ActivityBusiness.stopActivityById(req.user, id, new ActivityDTO(body).getJson())
+            .then(function (data: any) {
+                res.status(200).send(new ActivityDTO(data).getJson());
             })
             .catch(error => {
                 next(error);
@@ -256,7 +227,6 @@ function deleteActivityById(req, res, next) {
 
 
 module.exports = {
-    template,
     getActivity,
     getActivityById,
     startActivity,
