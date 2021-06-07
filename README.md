@@ -3,7 +3,7 @@ Is a set of tools to help the FrontEnd developer in the making of a portal alike
 
 ## Documentation
 
-The documentation was build with [Swagger](https://swagger.io/specification/) [swagger-jsdoc](https://www.npmjs.com/package/swagger-jsdoc) and the link is the following:
+The documentation was build with [Swagger](https://swagger.io/specification/) - [swagger-jsdoc](https://www.npmjs.com/package/swagger-jsdoc) and the link is the following:
 <br>https://qrvey-js-time-tracker.herokuapp.com/api-docs/
 
 ## Installation
