@@ -12,30 +12,35 @@ The documentation was build with [Swagger](https://swagger.io/specification/) - 
 
 First download the project and run the following command.
 
-``` bash
+```
   $ npm install
+```
+
+Start the server:
+```
+  $ npm start
 ```
 
 ### Deploy the API on Heroku
 1. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
 2. If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.
-``` bash
+```
   $ heroku login
 ```
 3. Clone the repository
-``` bash
+```
   $ heroku git:clone -a qrvey-js-time-tracker
   $ cd qrvey-js-time-tracker
 ```
 4. Deploy your changes
-``` bash
+```
   $ git add .
   $ git commit -am "make it better"
   $ git push heroku master
 ```
 
 ## Run Tests
-``` bash
+```
   $ npm run test
 ```
 _Important: Ensure the packages Nodemon, Ts-node and Typescript are under the dependencies node in the package.json, NOT in devDependencies_
